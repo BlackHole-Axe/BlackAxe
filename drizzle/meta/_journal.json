@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1768495632945,
+      "tag": "0000_fancy_vulcan",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1768495949830,
+      "tag": "0001_bent_mandroid",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1768497996656,
+      "tag": "0002_silly_shadow_king",
+      "breakpoints": true
+    }
+  ]
+}
