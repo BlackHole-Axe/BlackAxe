@@ -1,0 +1,555 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/files/geist-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/files/geist-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/files/geist-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.0.1/files/geist-mono-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  /* Custom Neon Colors */
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-green: var(--neon-green);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-orange: var(--neon-orange);
+  --color-neon-red: var(--neon-red);
+  --color-neon-yellow: var(--neon-yellow);
+  --color-neon-pink: var(--neon-pink);
+  --color-status-online: var(--status-online);
+  --color-status-offline: var(--status-offline);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-miner-bitaxe: var(--miner-bitaxe);
+  --color-miner-nerdqaxe: var(--miner-nerdqaxe);
+  --color-miner-avalon: var(--miner-avalon);
+  --color-miner-antminer: var(--miner-antminer);
+  --color-miner-whatsminer: var(--miner-whatsminer);
+  --color-miner-canaan: var(--miner-canaan);
+  --color-miner-other: var(--miner-other);
+}
+
+/* BlackAxe Light Theme */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.98 0.01 260);
+  --foreground: oklch(0.15 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 260);
+  /* Cyan Primary */
+  --primary: oklch(0.55 0.2 195);
+  --primary-foreground: oklch(0.98 0.01 260);
+  /* Purple Secondary */
+  --secondary: oklch(0.5 0.15 300);
+  --secondary-foreground: oklch(0.98 0.01 260);
+  --muted: oklch(0.95 0.01 260);
+  --muted-foreground: oklch(0.45 0.02 260);
+  /* Green Accent */
+  --accent: oklch(0.55 0.2 145);
+  --accent-foreground: oklch(0.98 0.01 260);
+  /* Red Destructive */
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 260);
+  --border: oklch(0.88 0.01 260);
+  --input: oklch(0.95 0.01 260);
+  --ring: oklch(0.55 0.2 195);
+  /* Chart Colors */
+  --chart-1: oklch(0.55 0.2 195);
+  --chart-2: oklch(0.55 0.2 145);
+  --chart-3: oklch(0.5 0.15 300);
+  --chart-4: oklch(0.6 0.2 60);
+  --chart-5: oklch(0.55 0.22 25);
+  /* Custom Colors */
+  --neon-cyan: oklch(0.55 0.2 195);
+  --neon-green: oklch(0.55 0.2 145);
+  --neon-purple: oklch(0.5 0.15 300);
+  --neon-orange: oklch(0.6 0.2 60);
+  --neon-red: oklch(0.55 0.22 25);
+  --neon-yellow: oklch(0.7 0.18 90);
+  --neon-pink: oklch(0.6 0.2 350);
+  /* Status Colors */
+  --status-online: oklch(0.55 0.2 145);
+  --status-offline: oklch(0.6 0.05 260);
+  --status-warning: oklch(0.6 0.2 60);
+  --status-error: oklch(0.55 0.22 25);
+  /* Miner Type Colors – كل نوع لون مميز */
+  --miner-bitaxe: oklch(0.62 0.2 75);
+  --miner-nerdqaxe: oklch(0.55 0.18 290);
+  --miner-avalon: oklch(0.62 0.22 355);
+  --miner-antminer: oklch(0.52 0.2 235);
+  --miner-whatsminer: oklch(0.55 0.2 155);
+  --miner-canaan: oklch(0.58 0.18 25);
+  --miner-other: oklch(0.5 0.06 260);
+  /* Sidebar */
+  --sidebar: oklch(0.96 0.01 260);
+  --sidebar-foreground: oklch(0.15 0.02 260);
+  --sidebar-primary: oklch(0.55 0.2 195);
+  --sidebar-primary-foreground: oklch(0.98 0.01 260);
+  --sidebar-accent: oklch(0.92 0.02 260);
+  --sidebar-accent-foreground: oklch(0.15 0.02 260);
+  --sidebar-border: oklch(0.88 0.01 260);
+  --sidebar-ring: oklch(0.55 0.2 195);
+}
+
+/* BlackAxe Cyberpunk Dark Theme */
+.dark {
+  --radius: 0.625rem;
+  --background: oklch(0.08 0.02 260);
+  --foreground: oklch(0.95 0.01 260);
+  --card: oklch(0.12 0.02 260);
+  --card-foreground: oklch(0.95 0.01 260);
+  --popover: oklch(0.12 0.02 260);
+  --popover-foreground: oklch(0.95 0.01 260);
+  /* Neon Cyan Primary */
+  --primary: oklch(0.75 0.18 195);
+  --primary-foreground: oklch(0.1 0.02 260);
+  /* Neon Purple Secondary */
+  --secondary: oklch(0.45 0.15 300);
+  --secondary-foreground: oklch(0.95 0.01 260);
+  --muted: oklch(0.2 0.02 260);
+  --muted-foreground: oklch(0.6 0.02 260);
+  /* Neon Green Accent */
+  --accent: oklch(0.7 0.2 145);
+  --accent-foreground: oklch(0.1 0.02 260);
+  /* Neon Red Destructive */
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.95 0.01 260);
+  --border: oklch(0.25 0.03 260);
+  --input: oklch(0.2 0.02 260);
+  --ring: oklch(0.75 0.18 195);
+  /* Chart Colors - Neon Palette */
+  --chart-1: oklch(0.75 0.18 195);
+  --chart-2: oklch(0.7 0.2 145);
+  --chart-3: oklch(0.65 0.18 300);
+  --chart-4: oklch(0.7 0.2 60);
+  --chart-5: oklch(0.6 0.22 25);
+  /* Custom BlackAxe Neon Colors */
+  --neon-cyan: oklch(0.75 0.18 195);
+  --neon-green: oklch(0.7 0.2 145);
+  --neon-purple: oklch(0.65 0.18 300);
+  --neon-orange: oklch(0.7 0.2 60);
+  --neon-red: oklch(0.6 0.22 25);
+  --neon-yellow: oklch(0.85 0.18 90);
+  --neon-pink: oklch(0.7 0.2 350);
+  /* Status Colors */
+  --status-online: oklch(0.7 0.2 145);
+  --status-offline: oklch(0.5 0.1 260);
+  --status-warning: oklch(0.7 0.2 60);
+  --status-error: oklch(0.6 0.22 25);
+  /* Miner Type Colors (Dark) – كل نوع لون مميز */
+  --miner-bitaxe: oklch(0.72 0.2 75);
+  --miner-nerdqaxe: oklch(0.68 0.18 290);
+  --miner-avalon: oklch(0.72 0.22 355);
+  --miner-antminer: oklch(0.7 0.18 235);
+  --miner-whatsminer: oklch(0.7 0.2 155);
+  --miner-canaan: oklch(0.68 0.2 25);
+  --miner-other: oklch(0.52 0.08 260);
+  /* Sidebar */
+  --sidebar: oklch(0.1 0.02 260);
+  --sidebar-foreground: oklch(0.95 0.01 260);
+  --sidebar-primary: oklch(0.75 0.18 195);
+  --sidebar-primary-foreground: oklch(0.1 0.02 260);
+  --sidebar-accent: oklch(0.18 0.03 260);
+  --sidebar-accent-foreground: oklch(0.95 0.01 260);
+  --sidebar-border: oklch(0.25 0.03 260);
+  --sidebar-ring: oklch(0.75 0.18 195);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* Scrollbar - Light Mode */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Scrollbar - Dark Mode */
+.dark ::-webkit-scrollbar-track {
+  background: oklch(0.1 0.02 260);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: oklch(0.3 0.03 260);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.75 0.18 195);
+}
+
+/* Selection highlight */
+::selection {
+  background: var(--primary) / 0.3;
+  color: var(--foreground);
+}
+
+.dark ::selection {
+  background: oklch(0.75 0.18 195 / 0.3);
+  color: oklch(0.95 0.01 260);
+}
+
+@layer components {
+  /* Neon glow effects */
+  .neon-glow-cyan {
+    box-shadow: 0 0 5px oklch(0.75 0.18 195 / 0.5),
+                0 0 20px oklch(0.75 0.18 195 / 0.3),
+                0 0 40px oklch(0.75 0.18 195 / 0.1);
+  }
+
+  .neon-glow-green {
+    box-shadow: 0 0 5px oklch(0.7 0.2 145 / 0.5),
+                0 0 20px oklch(0.7 0.2 145 / 0.3),
+                0 0 40px oklch(0.7 0.2 145 / 0.1);
+  }
+
+  .neon-glow-purple {
+    box-shadow: 0 0 5px oklch(0.65 0.18 300 / 0.5),
+                0 0 20px oklch(0.65 0.18 300 / 0.3),
+                0 0 40px oklch(0.65 0.18 300 / 0.1);
+  }
+
+  .neon-glow-orange {
+    box-shadow: 0 0 5px oklch(0.7 0.2 60 / 0.5),
+                0 0 20px oklch(0.7 0.2 60 / 0.3),
+                0 0 40px oklch(0.7 0.2 60 / 0.1);
+  }
+
+  .neon-glow-red {
+    box-shadow: 0 0 5px oklch(0.6 0.22 25 / 0.5),
+                0 0 20px oklch(0.6 0.22 25 / 0.3),
+                0 0 40px oklch(0.6 0.22 25 / 0.1);
+  }
+
+  .neon-text-cyan {
+    text-shadow: 0 0 5px oklch(0.75 0.18 195 / 0.8),
+                 0 0 20px oklch(0.75 0.18 195 / 0.5);
+  }
+
+  .neon-text-green {
+    text-shadow: 0 0 5px oklch(0.7 0.2 145 / 0.8),
+                 0 0 20px oklch(0.7 0.2 145 / 0.5);
+  }
+
+  /* Cyberpunk card style */
+  .cyber-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .dark .cyber-card {
+    background: linear-gradient(135deg, oklch(0.12 0.02 260) 0%, oklch(0.08 0.02 260) 100%);
+    border: 1px solid oklch(0.25 0.03 260);
+  }
+
+  .cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary) / 0.3, transparent);
+  }
+
+  .dark .cyber-card::before {
+    background: linear-gradient(90deg, transparent, oklch(0.75 0.18 195 / 0.5), transparent);
+  }
+
+  /* Grid pattern background */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(oklch(0.2 0.02 260 / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.2 0.02 260 / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Animated pulse for status indicators */
+  .pulse-online {
+    animation: pulse-green 2s infinite;
+  }
+
+  .pulse-warning {
+    animation: pulse-orange 2s infinite;
+  }
+
+  .pulse-error {
+    animation: pulse-red 1s infinite;
+  }
+
+  @keyframes pulse-green {
+    0%, 100% {
+      box-shadow: 0 0 0 0 oklch(0.7 0.2 145 / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 8px oklch(0.7 0.2 145 / 0);
+    }
+  }
+
+  @keyframes pulse-orange {
+    0%, 100% {
+      box-shadow: 0 0 0 0 oklch(0.7 0.2 60 / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 8px oklch(0.7 0.2 60 / 0);
+    }
+  }
+
+  @keyframes pulse-red {
+    0%, 100% {
+      box-shadow: 0 0 0 0 oklch(0.6 0.22 25 / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 8px oklch(0.6 0.22 25 / 0);
+    }
+  }
+
+  /* Gradient border effect */
+  .gradient-border {
+    position: relative;
+    background: oklch(0.12 0.02 260);
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, oklch(0.75 0.18 195), oklch(0.65 0.18 300));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Status badge styles */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .status-badge-online {
+    background: oklch(0.7 0.2 145 / 0.2);
+    color: oklch(0.7 0.2 145);
+  }
+
+  .status-badge-offline {
+    background: oklch(0.5 0.1 260 / 0.2);
+    color: oklch(0.5 0.1 260);
+  }
+
+  .status-badge-warning {
+    background: oklch(0.7 0.2 60 / 0.2);
+    color: oklch(0.7 0.2 60);
+  }
+
+  .status-badge-error {
+    background: oklch(0.6 0.22 25 / 0.2);
+    color: oklch(0.6 0.22 25);
+  }
+
+  /* Hashrate display */
+  .hashrate-display {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, oklch(0.75 0.18 195), oklch(0.7 0.2 145));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Mining animation */
+  .mining-animation {
+    animation: mining-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes mining-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.98);
+    }
+  }
+
+  /* Text gradient utilities */
+  .text-gradient-cyan-purple {
+    background: linear-gradient(135deg, oklch(0.75 0.18 195), oklch(0.65 0.18 300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-green-cyan {
+    background: linear-gradient(135deg, oklch(0.7 0.2 145), oklch(0.75 0.18 195));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Background utilities */
+  .bg-cyber-gradient {
+    background: linear-gradient(135deg, oklch(0.12 0.02 260) 0%, oklch(0.08 0.02 260) 100%);
+  }
+
+  .bg-glow-cyan {
+    background: radial-gradient(ellipse at center, oklch(0.75 0.18 195 / 0.15) 0%, transparent 70%);
+  }
+
+  .bg-glow-purple {
+    background: radial-gradient(ellipse at center, oklch(0.65 0.18 300 / 0.15) 0%, transparent 70%);
+  }
+}

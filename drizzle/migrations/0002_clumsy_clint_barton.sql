@@ -1,0 +1,1 @@
+ALTER TABLE `soloBlocks` ADD `localMinerName` text;

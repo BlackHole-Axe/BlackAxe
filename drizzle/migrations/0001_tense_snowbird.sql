@@ -1,0 +1,1 @@
+ALTER TABLE `miners` ADD `uptimeSeconds` integer DEFAULT 0;
